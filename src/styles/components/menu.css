@@ -1,0 +1,123 @@
+.menu {
+  width: 100%;
+  max-width: 980px;
+  padding: var(--panel-padding);
+  border-radius: var(--panel-radius);
+  background:
+    radial-gradient(circle at 100% -20%, color-mix(in srgb, var(--badge-bg) 30%, transparent), transparent 45%),
+    radial-gradient(circle at 0% 120%, color-mix(in srgb, var(--accent-color) 22%, transparent), transparent 45%),
+    var(--panel-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 28px 60px var(--shadow-color);
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.menu-kicker {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.menu-description {
+  max-width: 60ch;
+  margin: 0 auto;
+  color: var(--text-secondary);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.menu-card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(130deg, transparent 45%, color-mix(in srgb, var(--accent-color) 12%, transparent));
+  pointer-events: none;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent-color) 55%, transparent);
+  box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+.menu-card-badge {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--badge-text);
+  background: var(--badge-bg);
+  font-weight: 700;
+}
+
+.menu-card-emoji {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.menu-card h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
+.menu-card-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.menu-card-detail {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.35;
+  flex-grow: 1;
+}
+
+.menu-card button {
+  width: 100%;
+  margin: 0;
+}
+
+.menu-footer {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .menu {
+    padding: 22px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}

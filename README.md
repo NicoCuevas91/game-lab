@@ -29,9 +29,16 @@ game-lab/
 			Dice6.jsx
 			Dice20.jsx
 			Menu.jsx
-			Coin 0 0 0.jsx
+			hooks/
+				useCoinGame.js
+				useDice6Game.js
+				useDice20Game.js
 		styles/
-			app.css
+				components/
+					coin.css
+					dice6.css
+					dice20.css
+					menu.css
 		App.jsx
 		index.css
 		main.jsx
@@ -92,5 +99,5 @@ npm run dev
 
 ## Notas de mantenimiento
 
-- Existe un archivo `src/components/Coin 0 0 0.jsx` que parece una version alternativa/antigua de `Coin.jsx`.
-- Si no se usa, se recomienda archivarlo o eliminarlo para evitar confusion.
+- La logica de cada juego esta separada en hooks para facilitar mantenimiento y pruebas.
+- Los estilos estan separados por componente para evitar un CSS monolitico.

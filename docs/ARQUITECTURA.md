@@ -17,7 +17,8 @@ Game Lab es una SPA (Single Page Application) en React con arquitectura simple p
 - Manejo de vistas en `App.jsx`.
 
 2. Logica de juego
-- Cada juego encapsula su logica de azar, animacion e historial.
+- Cada juego encapsula su logica de azar, animacion e historial en hooks dedicados.
+- Hooks: `useCoinGame`, `useDice6Game`, `useDice20Game`.
 - Componentes: `Coin.jsx`, `Dice6.jsx`, `Dice20.jsx`.
 
 3. Recursos estaticos
@@ -35,8 +36,8 @@ No existe enrutamiento con URL. La navegacion se controla con estado en `App.jsx
 
 ## Estilos
 
-- Estilos centralizados en `src/styles/app.css`.
-- `src/index.css` esta casi vacio y puede mantenerse para estilos globales futuros.
+- Estilos globales y compartidos en `src/index.css`.
+- Estilos por componente en `src/styles/components`.
 
 ## Ventajas del enfoque actual
 
@@ -50,16 +51,15 @@ No existe enrutamiento con URL. La navegacion se controla con estado en `App.jsx
 - Al crecer el numero de juegos, conviene migrar a `react-router`.
 
 2. Reutilizacion de logica
-- Las estructuras de historial y animacion se repiten entre componentes.
-- Conviene extraer hooks reutilizables (`useRollHistory`, `useCountdown`).
+- Se extrajo la logica principal de cada juego a hooks dedicados.
+- Queda como mejora futura extraer hooks mas genericos (`useRollHistory`, `useCountdown`).
 
 3. Organizacion de estilos
-- `app.css` concentra muchos estilos.
-- Conviene dividir por modulo (`menu.css`, `coin.css`, etc.) o usar CSS Modules.
+- Los estilos ya estan divididos por modulo (`menu.css`, `coin.css`, etc.).
+- Como mejora futura, se puede migrar a CSS Modules para encapsular clases.
 
 4. Calidad de codigo
-- Hay un archivo probable de respaldo: `Coin 0 0 0.jsx`.
-- Se recomienda eliminar o mover a una carpeta de backup fuera de `src/components`.
+- Se elimino el archivo residual `Coin 0 0 0.jsx` para evitar confusiones.
 
 ## Propuesta de evolucion (opcional)
 

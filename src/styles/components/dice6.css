@@ -1,0 +1,158 @@
+.dice6-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1080px;
+  padding: var(--panel-padding);
+  border-radius: var(--panel-radius);
+  background: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 18px 40px var(--shadow-color);
+}
+
+.dice6-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dice6-layout {
+  display: flex;
+  justify-content: center;
+  gap: var(--section-gap);
+}
+
+.dice6-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.dice6-controls {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dice6-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.dice6-controls select {
+  background: var(--surface-strong);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.dice6-result-area {
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dice6-dice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 520px;
+}
+
+.dice6-die {
+  width: var(--die-size);
+  height: var(--die-size);
+  border-radius: 22px;
+  background: linear-gradient(145deg, var(--dice-face-start), var(--dice-face-end));
+  border: 2px solid var(--dice-face-border);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 14px;
+  gap: 8px;
+}
+
+.dice6-pip {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  justify-self: center;
+  align-self: center;
+  background: transparent;
+}
+
+.dice6-pip.active {
+  background: var(--dice-face-pip);
+}
+
+.dice6-die.rolling {
+  animation: dicePulse 0.25s linear infinite;
+}
+
+.dice6-results-list {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dice6-result-item {
+  background: var(--surface-muted);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dice6-history {
+  min-width: 200px;
+  border-left: 1px solid var(--border-color);
+  padding-left: 20px;
+}
+
+.dice6-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dice6-history li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--history-separator);
+  font-weight: bold;
+}
+
+@keyframes dicePulse {
+  0% {
+    transform: rotate(-2deg) scale(0.98);
+  }
+  50% {
+    transform: rotate(2deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(-2deg) scale(0.98);
+  }
+}
+
+@media (max-width: 900px) {
+  .dice6-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .dice6-history {
+    min-width: 100%;
+  }
+}
